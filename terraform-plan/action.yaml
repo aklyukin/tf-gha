@@ -7,6 +7,13 @@ inputs:
     description: Path to the terraform configuration
     required: false
     default: .
+  workspace:
+    description: Terraform workspace
+    required: false
+    default: default
+  var_files:
+    description: Path to the terraform configuration
+    required: false
 
 runs:
   using: docker
