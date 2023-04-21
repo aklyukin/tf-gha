@@ -31,7 +31,7 @@ LABEL "com.hashicorp.terraform.version"="${TERRAFORM_VERSION}"
 LABEL "com.cloudposse.chamber.version"="${CHAMBER_VERSION}"
 LABEL "com.cloudposse.tfenv.version"="${TFENV_VERSION}"
 
-RUN apk add --no-cache git openssh aws-cli
+RUN apk add --no-cache bash git openssh aws-cli
 
 COPY --from=build ["/bin/terraform", "/bin/terraform"]
 COPY --from=build ["/bin/chamber", "/bin/chamber"]
