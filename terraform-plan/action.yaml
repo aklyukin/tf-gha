@@ -10,5 +10,5 @@ inputs:
 
 runs:
   using: docker
-  image: aklyukin/tf-gha:latest
+  image: docker://aklyukin/tf-gha:latest
   entrypoint: /entrypoints/terraform-plan.sh
