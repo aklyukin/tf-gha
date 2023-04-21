@@ -1,0 +1,14 @@
+name: terraform-apply
+description: Apply terraform plan
+author: Andrey Klyukin
+
+inputs:
+  path:
+    description: Path to the terraform configuration
+    required: false
+    default: .
+
+runs:
+  using: docker
+  image: aklyukin/tf-gha:latest
+  entrypoint: /entrypoints/terraform-plan.sh

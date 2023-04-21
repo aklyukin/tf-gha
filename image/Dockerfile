@@ -37,5 +37,6 @@ COPY --from=build ["/bin/terraform", "/bin/terraform"]
 COPY --from=build ["/bin/chamber", "/bin/chamber"]
 COPY --from=build ["/bin/tfenv", "/bin/tfenv"]
 
+COPY entrypoints/ /entrypoints/
 
 #ENTRYPOINT ["/bin/terraform"]
