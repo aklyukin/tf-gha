@@ -8,4 +8,4 @@ set-plan-args
 
 run-plan
 
-cd $INPUT_PATH && terraform workspace list
+(cd $INPUT_PATH && terraform workspace list)
