@@ -31,6 +31,7 @@ function terraform-init() {
     TF_PLUGIN_CACHE_DIR=$INPUT_PLUGIN_CACHE_DIR \
     TF_WORKSPACE=$INPUT_WORKSPACE \
     terraform init -input=false)
+    ls -la $INPUT_PLUGIN_CACHE_DIR
 }
 
 function terraform-plan() {
