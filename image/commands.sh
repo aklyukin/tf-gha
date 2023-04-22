@@ -12,10 +12,6 @@ function setup() {
     fi
 }
 
-function run-terraform-init() {
-    (cd "$INPUT_PATH" && TF_WORKSPACE=$INPUT_WORKSPACE terraform init -input=false)
-}
-
 function set-plan-args() {
     if [[ -n "$INPUT_VAR_FILE" ]]; then
         for file in $(echo "$INPUT_VAR_FILE" | tr ',' '\n'); do
@@ -28,6 +24,14 @@ function set-plan-args() {
     fi
 }
 
-function run-plan() {
+function terraform-init() {
+    (cd "$INPUT_PATH" && TF_WORKSPACE=$INPUT_WORKSPACE terraform init -input=false)
+}
+
+function terraform-plan() {
+  (cd "$INPUT_PATH" && TF_WORKSPACE=$INPUT_WORKSPACE terraform plan -input=false $PLAN_ARGS)
+}
+
+function terraform-fmt() {
   (cd "$INPUT_PATH" && TF_WORKSPACE=$INPUT_WORKSPACE terraform plan -input=false $PLAN_ARGS)
 }

@@ -1,0 +1,14 @@
+name: terraform-fmt
+description: Run terraform fmt
+author: Andrey Klyukin
+
+inputs:
+  path:
+    description: Path to the terraform configuration
+    required: false
+    default: .
+
+runs:
+  using: docker
+  image: docker://aklyukin/tf-gha:latest
+  entrypoint: /entrypoints/terraform-fmt.sh

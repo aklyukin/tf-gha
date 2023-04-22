@@ -3,7 +3,5 @@
 source /usr/local/commands.sh
 
 setup
-terraform-init
-set-plan-args
 
-terraform-plan
+terraform-fmt
