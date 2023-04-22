@@ -29,5 +29,5 @@ function set-plan-args() {
 }
 
 function run-plan() {
-  (cd "$INPUT_PATH" && terraform plan -input=false $PLAN_ARGS)
+  (cd "$INPUT_PATH" && TF_WORKSPACE=$INPUT_WORKSPACE terraform plan -input=false $PLAN_ARGS)
 }
