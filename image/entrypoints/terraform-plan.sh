@@ -6,4 +6,5 @@ setup
 terraform-init
 set-plan-args
 
+echo $HOME
 terraform-plan

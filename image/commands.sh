@@ -25,11 +25,18 @@ function set-plan-args() {
 }
 
 function terraform-init() {
-    (cd "$INPUT_PATH" && TF_WORKSPACE=$INPUT_WORKSPACE terraform init -input=false)
+    (\
+    cd "$INPUT_PATH" && \
+    TF_PLUGIN_CACHE_DIR=$INPUT_PLUGIN_CACHE_DIR \
+    TF_WORKSPACE=$INPUT_WORKSPACE \
+    terraform init -input=false)
 }
 
 function terraform-plan() {
-  (cd "$INPUT_PATH" && TF_WORKSPACE=$INPUT_WORKSPACE terraform plan -input=false $PLAN_ARGS)
+  (cd "$INPUT_PATH" && \
+  TF_PLUGIN_CACHE_DIR=$INPUT_PLUGIN_CACHE_DIR \
+  TF_WORKSPACE=$INPUT_WORKSPACE \
+  terraform plan -input=false $PLAN_ARGS)
 }
 
 function terraform-fmt() {

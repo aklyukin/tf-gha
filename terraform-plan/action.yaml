@@ -11,6 +11,9 @@ inputs:
     description: Terraform workspace
     required: false
     default: default
+  plugin_cache_dir:
+    description: Path to the terraform PLUGIN_CACHE_DIR
+    required: false
   var_files:
     description: Path to the terraform configuration
     required: false
