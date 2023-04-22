@@ -25,6 +25,7 @@ function set-plan-args() {
 }
 
 function terraform-init() {
+    ls -la $INPUT_PLUGIN_CACHE_DIR
     (\
     cd "$INPUT_PATH" && \
     TF_PLUGIN_CACHE_DIR=$INPUT_PLUGIN_CACHE_DIR \
