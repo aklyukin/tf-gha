@@ -6,4 +6,4 @@ setup
 terraform-init
 set-plan-args
 
-terraform-plan
+terraform-apply

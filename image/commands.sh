@@ -24,14 +24,16 @@ function set-plan-args() {
     fi
 }
 
+function terraform-fmt() {
+  (cd "$INPUT_PATH" && terraform fmt -check -diff)
+}
+
 function terraform-init() {
-    ls -la $INPUT_PLUGIN_CACHE_DIR
     (\
     cd "$INPUT_PATH" && \
     TF_PLUGIN_CACHE_DIR=$INPUT_PLUGIN_CACHE_DIR \
     TF_WORKSPACE=$INPUT_WORKSPACE \
     terraform init -input=false)
-    ls -la $INPUT_PLUGIN_CACHE_DIR
 }
 
 function terraform-plan() {
@@ -41,6 +43,8 @@ function terraform-plan() {
   terraform plan -input=false $PLAN_ARGS)
 }
 
-function terraform-fmt() {
-  (cd "$INPUT_PATH" && terraform fmt -check -diff)
+function terraform-apply() {
+  (cd "$INPUT_PATH" && \
+  TF_WORKSPACE=$INPUT_WORKSPACE \
+  terraform apply -input=false -auto-approve -lock-timeout=300s $PLAN_ARGS)
 }
