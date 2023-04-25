@@ -1,5 +1,5 @@
-name: terraform-plan
-description: Generate terraform plan
+name: terraform-apply
+description: Apply terraform plan
 author: Andrey Klyukin
 
 inputs:
@@ -21,4 +21,4 @@ inputs:
 runs:
   using: docker
   image: docker://aklyukin/tf-gha:latest
-  entrypoint: /entrypoints/terraform-plan.sh
+  entrypoint: /entrypoints/terraform-apply.sh
